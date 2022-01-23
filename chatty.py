@@ -1,6 +1,6 @@
 import nltk
 
-class Botty():
+class Chatty():
     def __init__(self):
         self.words = []
         self.classes = []
