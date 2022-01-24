@@ -5,4 +5,4 @@ class Chatty():
         self.words = []
         self.classes = []
         self.documents = []
-        self.ignore_words = ['?', '!', '.']
+        self.ignore_words = ['?', '!']
