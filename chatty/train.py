@@ -30,7 +30,7 @@ class Training():
         """
         Loads the intents.json file in tho the 
         """
-        intents = json.load(open('intents.json'))
+        intents = json.load(open('files/intents.json'))
 
         for intent in intents.get('intents'):
             for pattern in intent.get('patterns'):
@@ -52,8 +52,8 @@ class Training():
         self.classes = sorted(list(set(self.classes)))
         
         # Save words and classes
-        pickle.dump(self.words, open('words.pkl', 'wb'))
-        pickle.dump(self.classes, open('classes.pkl', 'wb'))
+        pickle.dump(self.words, open('files/words.pkl', 'wb'))
+        pickle.dump(self.classes, open('files/classes.pkl', 'wb'))
     
     def train(self):
         train_x, train_y = self._prepare_training()
@@ -115,7 +115,7 @@ class Training():
 
         #fitting and saving the model
         hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
-        model.save(f'{filename}.h5', hist)
+        model.save(f'files/{filename}.h5', hist)
         self.model = model
         print('model created and saved')
 

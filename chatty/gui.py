@@ -1,5 +1,5 @@
 #Creating GUI with tkinter
-from response import Response
+from chatty.response import Response
 from tkinter import Tk, Text, Scrollbar, Button, END, NORMAL, DISABLED, FALSE
 
 class GUI:

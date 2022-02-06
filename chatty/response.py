@@ -7,10 +7,10 @@ import random
 
 class Response:
     def __init__(self):
-        self.model = load_model('chatty.h5')
-        self.intents = json.load(open('intents.json'))
-        self.words = pickle.load(open('words.pkl', 'rb'))
-        self.classes = pickle.load(open('classes.pkl', 'rb'))
+        self.model = load_model('files/chatty.h5')
+        self.intents = json.load(open('files/intents.json'))
+        self.words = pickle.load(open('files/words.pkl', 'rb'))
+        self.classes = pickle.load(open('files/classes.pkl', 'rb'))
         self.lemmatizer = nltk.WordNetLemmatizer()
 
     def respond(self, msg):
