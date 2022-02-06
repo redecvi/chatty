@@ -2,6 +2,7 @@ import nltk
 from nltk.stem import WordNetLemmatizer
 import json
 import numpy as np
+import pickle
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from tensorflow.keras.optimizers import SGD
@@ -22,8 +23,8 @@ class Training():
         self.documents = []
         self.ignore_words = ['?', '!']
         self.lemmatizer = WordNetLemmatizer()
-        self._load_intents()
         self.model = None
+        self._load_intents()
 
     def _load_intents(self):
         """
@@ -49,6 +50,10 @@ class Training():
         self.words = sorted(list(set(self.words)))
 
         self.classes = sorted(list(set(self.classes)))
+        
+        # Save words and classes
+        pickle.dump(self.words, open('words.pkl', 'wb'))
+        pickle.dump(self.classes, open('classes.pkl', 'wb'))
     
     def train(self):
         train_x, train_y = self._prepare_training()
